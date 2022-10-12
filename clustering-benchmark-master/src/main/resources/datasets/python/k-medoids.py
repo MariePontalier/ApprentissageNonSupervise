@@ -37,10 +37,10 @@ print("Appel KMeans pour une valeur fixee de k")
 
 old_Davies = -1
 old_Silhouette = -2
+distmatrix = manhattan_distances(datanp)
 for k in range(2,8):
     tps1 = time.time()
     # distmatrix = euclidean_distances(datanp)
-    distmatrix = manhattan_distances(datanp)
     fp = kmedoids.fasterpam(distmatrix, k)
     tps2 = time.time()
     iter_kmed = fp.n_iter
