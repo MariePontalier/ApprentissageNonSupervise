@@ -1,4 +1,4 @@
-from sklearn.neighbors import NearestNeighbors 
+from sklearn.neighbors import NearestNeighbors
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.io import arff
@@ -21,29 +21,33 @@ path = '../artificial'
 # dist = 7
 # k = 7
 
-databrut = arff.loadarff(open(path+"/aggregation.arff", 'r'))
-dist = 1.8
+# databrut = arff.loadarff(open(path + "/aggregation.arff", 'r'))
+# dist = 1.8
+# k = 5
+
+databrut = arff.loadarff(open(path + "/diamond9.arff", 'r'))
+dist = 0.225
 k = 5
 
 # Donnees dans X
-X = [[x[0],x[1]] for x in databrut[0]]
+X = [[x[0], x[1]] for x in databrut[0]]
 f0 = [f[0] for f in X]
 f1 = [f[1] for f in X]
 
 # Distances k plus proches voisins
 
-neigh = NearestNeighbors(n_neighbors = k)
+neigh = NearestNeighbors(n_neighbors=k)
 neigh.fit(X)
 distances, indices = neigh.kneighbors(X)
 # retirer le point " origine "
-newDistances = np.asarray ([np.average(distances[i][1:]) for i in range (0, distances.shape[0])])
+newDistances = np.asarray([np.average(distances[i][1:]) for i in range(0, distances.shape[0])])
 trie = np.sort(newDistances)
 plt.title(" Plus proches voisins (5) ")
 plt.plot(trie)
 plt.show()
 
-tps1=time.time()
-model = cluster.DBSCAN(eps = dist, min_samples = k)
+tps1 = time.time()
+model = cluster.DBSCAN(eps=dist, min_samples=k)
 model = model.fit(X)
 tps2 = time.time()
 

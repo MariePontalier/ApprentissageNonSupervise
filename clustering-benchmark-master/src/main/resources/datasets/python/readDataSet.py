@@ -6,9 +6,11 @@ from scipy.io import arff
 # Parser un fichier de donnees au format arff
 
 path = '../artificial'
-databrut = arff.loadarff(open(path+"/aggregation.arff", 'r'))
-#print(databrut[0])
-data = [[x[0],x[1]] for x in databrut[0]]
+databrut = arff.loadarff(open(path + "/diamond9.arff", 'r'))
+
+
+# print(databrut[0])
+data = [[x[0], x[1]] for x in databrut[0]]
 
 f0 = [f[0] for f in data]
 f1 = [f[1] for f in data]

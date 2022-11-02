@@ -14,7 +14,7 @@ path = '../artificial'
 # databrut = arff.loadarff(open(path+"/xclara.arff", 'r'))
 # k = 3
 
-databrut = arff.loadarff(open(path+"/square2.arff", 'r'))
+databrut = arff.loadarff(open(path + "/square2.arff", 'r'))
 # k=4
 
 # COMPLEX CLUSTERING
@@ -25,7 +25,7 @@ databrut = arff.loadarff(open(path+"/square2.arff", 'r'))
 # databrut = arff.loadarff(open(path+"/complex8.arff", 'r'))
 # k=8
 
-datanp = [[x[0],x[1]] for x in databrut[0]]
+datanp = [[x[0], x[1]] for x in databrut[0]]
 datanp1 = [[x[2]] for x in databrut[0]]
 
 f0 = [f[0] for f in datanp]
@@ -34,11 +34,10 @@ true_labels = [f[0] for f in datanp1]
 
 print("Appel KMeans pour une valeur fixee de k")
 
-
 old_Davies = -1
 old_Silhouette = -2
 distmatrix = manhattan_distances(datanp)
-for k in range(2,8):
+for k in range(2, 8):
     tps1 = time.time()
     # distmatrix = euclidean_distances(datanp)
     fp = kmedoids.fasterpam(distmatrix, k)
