@@ -29,7 +29,7 @@ path = '../artificial'
 
 # COMPLEX CLUSTERING
 
-databrut = arff.loadarff(open(path+"/xclara.arff", 'r'))
+# databrut = arff.loadarff(open(path+"/xclara.arff", 'r'))
 # k = 3
 
 # databrut = arff.loadarff(open(path+"/square2.arff", 'r'))
@@ -153,7 +153,7 @@ cluster_link_method = ['single', 'average', 'complete', 'ward']
 # plt.show()
 
 
-model = cluster.AgglomerativeClustering(linkage="single", n_clusters=4)
+model = cluster.AgglomerativeClustering(linkage="single", n_clusters=k)
 model = model.fit(datanp)
 plt.scatter(f0, f1, c=model.labels_)
 plt.title("Donnees apres clustering en choisissant le nombre de clusters")

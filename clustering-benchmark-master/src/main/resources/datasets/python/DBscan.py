@@ -8,9 +8,9 @@ from sklearn import cluster
 path = '../artificial'
 
 # EASY CLUSTERING
-# databrut = arff.loadarff(open(path+"/smile1.arff", 'r'))
-# dist = 0.035
-# k = 5
+databrut = arff.loadarff(open(path+"/smile1.arff", 'r'))
+dist = 0.035
+k = 5
 
 # databrut = arff.loadarff(open(path+"/banana.arff", 'r'))
 # dist = 0.035
@@ -25,9 +25,9 @@ path = '../artificial'
 # dist = 1.8
 # k = 5
 
-databrut = arff.loadarff(open(path + "/diamond9.arff", 'r'))
-dist = 0.225
-k = 5
+# databrut = arff.loadarff(open(path + "/diamond9.arff", 'r'))
+# dist = 0.225
+# k = 5
 
 # Donnees dans X
 X = [[x[0], x[1]] for x in databrut[0]]
